@@ -3,8 +3,8 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const rfs = require('rotating-file-stream');
-const home = require('./home');
-const genres = require('./genres');
+const home = require('./routes/home');
+const genres = require('./routes/genres');
 const express = require('express');
 const app = express();
 

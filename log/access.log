@@ -1,0 +1,5 @@
+GET /api/genres 304 - - 5.001 ms
+GET / 200 86 - 386.587 ms
+GET /favicon.ico 404 150 - 4.662 ms
+GET /text 404 143 - 1.309 ms
+GET /text.txt 200 28 - 6.643 ms
