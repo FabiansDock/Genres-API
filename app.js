@@ -1,9 +1,9 @@
 const config = require('config');
-const Joi = require('joi');
 const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const rfs = require('rotating-file-stream');
+const home = require('./home');
 const genres = require('./genres');
 const express = require('express');
 const app = express();
@@ -22,9 +22,11 @@ if(app.get('env') === 'development') {
     app.use(morgan('tiny', { stream: accessLogStream }));
 }
 
+app.set('view engine', 'pug');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static('public'));
+app.use('/', home);
 app.use('/api/genres', genres);
 
 const port = process.env.PORT || 3000;
