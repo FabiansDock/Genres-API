@@ -3,14 +3,15 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const rfs = require('rotating-file-stream');
+const logger = require('./middleware/logger');
 const home = require('./routes/home');
 const genres = require('./routes/genres');
 const express = require('express');
 const app = express();
 
-console.log("Development name:"+config.name);
-console.log("Development host:"+config.host);
-console.log("Development password:"+config.password);
+console.log("Name: "+config.name);
+console.log("Host: "+config.host);
+console.log("Password: "+config.password);
 const logDirectory = path.join(__dirname, 'log');
 fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 // For logging during development only
@@ -19,6 +20,7 @@ if(app.get('env') === 'development') {
         interval: '1d', // rotate daily
         path: logDirectory,
     });
+    app.use(logger);
     app.use(morgan('tiny', { stream: accessLogStream }));
 }
 

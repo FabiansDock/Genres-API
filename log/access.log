@@ -3,3 +3,7 @@ GET / 200 86 - 386.587 ms
 GET /favicon.ico 404 150 - 4.662 ms
 GET /text 404 143 - 1.309 ms
 GET /text.txt 200 28 - 6.643 ms
+GET / 304 - - 329.850 ms
+GET /favicon.ico 404 150 - 3.564 ms
+GET / 304 - - 212.342 ms
+GET / 304 - - 229.616 ms
